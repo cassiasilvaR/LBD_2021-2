@@ -15,14 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, form, create, view, edit, update
+from app.views import form_e, home, form, create, view, edit, update, form_e, update_e, create_e, emprestar, create_user, form_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'), 
     path('form/', form, name='form'),
+    path('form_e/', form_e, name= 'form_e'),
+    path('create_e/', create_e, name='create_e'),
     path('create/', create, name='create'),
     path('view/<int:pk>/', view, name='view'),  
     path('edit/<int:pk>/', edit, name='edit'),
+    path('update_e/<int:pk>/', update_e, name = 'uptade_e'),
     path('update/<int:pk>/', update, name='update'),
+    path('emprestar/<int:pk>/', emprestar, name='emprestar'),
+    path('form_user/', form_user, name='form_user'),
+    path('create_user/', create_user, name='create_user')
 ]

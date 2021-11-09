@@ -11,13 +11,17 @@
                 Trabalho Prático - Laboratório de Banco de Dados
             </h1>
         </div>
-        <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <a href="/form" class="btn btn-successs">
-                Adicionar
+        <div class="col-8 m-auto pt-2 pb-2 text-center">            
+            <a href="/form" class="btn btn-successs" style="background-color: rgb(116, 199, 199); color: floralwhite;">
+                Adicionar Livro
+            </a>
+            <a href="/form_e" class="btn btn-successs" style="background-color: rgb(116, 199, 199); color: floralwhite;">
+                Adicionar Escritor(a)
             </a>
         </div>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
             <table class="table">
+                <h2>Livros</h2>
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -25,8 +29,9 @@
                     <th scope="col">Edicao</th>
                     <th scope="col">Ano</th>
                     <th scope="col">IBSN</th>
+                    <th scope="col">Escritor(a)</th>
+                    <th scope="col">Estante</th> 
                     <th scope="col">Ações</th>
-                    
                   </tr>
                 </thead>
                 <tbody>
@@ -37,14 +42,40 @@
                         <td>{{dbs.edicao}}</td>
                         <td>{{dbs.ano}}</td>
                         <td>{{dbs.ibsn}}</td>
+                        <td>{{dbs.escritor.nome}}</td>
+                        <td>{{dbs.estante.categoria}}</td>
                         <td>
                             <a href="/view/{{dbs.id}}" class="btn btn-dark">Visualizar</a>
                             <a href="/edit/{{dbs.id}}" class="btn btn-primary">Editar</a>
                             <a href="" class="btn btn-danger">Deletar</a>
+                            <a href="/emprestar/{{dbs.id}}" class="btn btn-secondary">Emprestar</a>
                         </td>
                       </tr>
                     {%endfor%}
             </table>
+        </div>
+        <div class="col-8 m-auto pt-2 pb-2 text-center">
+            <table class="table">
+                <h2>Escritores</h2>
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Área de atuação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for dbes in dbe %}
+                    <tr>
+                        <td>{{dbes.id}}</td>
+                        <td>{{dbes.nome}}</td>
+                        <td>{{dbes.area_atuacao}}</td>
+                    </tr>
+                    {%endfor%}
+            </table>
+        </div>
+        <div class="col-8 m-auto pt-2 pb-4 text-center">
+            <a href="/form_user" class="btn btn-success" style="background-color: darkcyan; color: floralwhite;">Cadastrar Usuário</a>
         </div>
     </body>
 </html>
