@@ -2,7 +2,7 @@ from typing import NoReturn
 from django.forms.widgets import DateInput, DateTimeBaseInput
 from django.shortcuts import redirect, render
 from app.forms import EmprestimoForm, EscritorForm, EstanteForm, LivroForm, UsuarioForm
-from app.models import Escritor, Livro
+from app.models import Escritor, Livro, Usuario, Estante
 # Create your views here.
 def home(request):
     data = {}
@@ -15,14 +15,35 @@ def form_e(request):
     data['form'] = EscritorForm
     return render(request, 'form_e.html', data)  
 
+def form_est(request):
+    data = {}
+    data['form'] = EstanteForm
+    return render(request, 'form_est.html', data) 
+
+def registestante(request):
+    form = EstanteForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return  redirect('home')  
+
 def emprestar(request, pk):
     data = {}
     data['db'] = Livro.objects.get(pk=pk)
+    data['user'] = Usuario.objects.all()#objects.all()
+    data['form'] = EmprestimoForm
     return render(request, 'emprestar.html', data)
+
+def emprestimo(request):
+    form = EmprestimoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
 
 def form(request):
     data = {}
     data['form'] = LivroForm
+    data['escritor'] = Escritor.objects.all()
+    data['estante'] = Estante.objects.all()
     return render(request, 'form.html', data)
 
 def form_user(request):

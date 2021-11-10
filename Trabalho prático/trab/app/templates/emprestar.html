@@ -17,13 +17,33 @@
             </a>
         </div>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <form name="emprestar" id="emprestar" action="/emprestar/" method="post">
+            <form name="emprestar" id="emprestar" action="/emprestimo/" method="post">
                 {% csrf_token %}
-                <div class="form-group mt-4"><strong>Nome: </strong> {{db.nome}}</div>
+                <div class="form-group mt-4"><strong>Livro: </strong> {{form.livro}}</div>
+                <div class="form-group mt-4"><strong>Nome: </strong> {{db.nome}} - {{db.id}}</div>
                 <div class="form-group mt-4"><strong>Escritor: </strong> {{db.escritor.nome}}</div>
                 <div class="form-group mt-4"><strong>Estante: </strong> {{db.estante.categoria}}</div>
                 <div class="form-group mt-4"><strong>IBSN: </strong> {{db.ibsn}}</div>
-                <div class="form-group mt-4"><strong>User: </strong> {{db.emprestar}}</div>
+                <div class="form-group mt-4"><strong>Usuário: </strong> {{form.usuario}}</div>
+                <div class="col-8 m-auto pt-2 pb-2 text-center">
+                    <table class="table">
+                        <h3>Usuários</h3>
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for users in user %}
+                            <tr>
+                                <td>{{users.id}}</td>
+                                <td>{{users.nome}}</td>
+                              </tr>
+                            {%endfor%}
+                    </table>
+                </div>
+                <!--<div class="form-group mt-4"><strong>Data: </strong> {{form.data}}</div>-->
                 <input type="submit" class="btn btn-success" value="Salvar">
             </form>
         </div>
