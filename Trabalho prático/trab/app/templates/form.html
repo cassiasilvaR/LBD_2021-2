@@ -25,6 +25,7 @@
                 <div class="form-group mt-4">IBSN: {{form.ibsn}}</div>
                 <div class="form-group mt-4">Escritor(a): {{form.escritor}} </div>
                 <div class="form-group mt-4">Estante: {{form.estante}} </div>
+                <div class="form-group mt-4"><input type="submit" class="btn btn-success" value="Salvar"></div>
                 <div class="col-8 m-auto pt-4 pb-2 text-center">
                     <table class="table">
                         <h3>Escritores</h3>
@@ -42,25 +43,23 @@
                               </tr>
                             {%endfor%}
                     </table>
-                    <div class="col-8 m-auto pt-4 pb-2 text-center">
-                        <table class="table">
-                            <h3>Estantes</h3>
-                            <thead>
-                              <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nome</th>
+                    <table class="table">
+                        <h3>Estantes</h3>
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for estantes in estante %}
+                            <tr>
+                                <td>{{estantes.id}}</td>
+                                <td>{{estantes.categoria}}</td>
                               </tr>
-                            </thead>
-                            <tbody>
-                                {% for estantes in estante %}
-                                <tr>
-                                    <td>{{estantes.id}}</td>
-                                    <td>{{estantes.categoria}}</td>
-                                  </tr>
-                                {%endfor%}
-                        </table>
+                            {%endfor%}
+                    </table>
                 </div>
-                <input type="submit" class="btn btn-success" value="Salvar">
             </form>
         </div>
     </body>

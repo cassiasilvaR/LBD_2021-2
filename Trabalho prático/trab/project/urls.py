@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import form_e, home, form, create, view, edit, update, form_e, update_e, create_e, emprestar, create_user, form_user, emprestimo, registestante, form_est
+from app.views import form_e, home, form, create, view, edit, update, form_e, update_e, create_e, emprestar, create_user, form_user, emprestimo, registestante, form_est, delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +34,5 @@ urlpatterns = [
     path('emprestimo/', emprestimo, name='emprestimo'),
     path('form_est/', form_est, name='form_est'),
     path('registestante/', registestante, name='registestante'),
+    path('delete/<int:pk>/', delete, name='delete'),
 ]

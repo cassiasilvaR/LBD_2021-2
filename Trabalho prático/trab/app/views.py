@@ -95,3 +95,8 @@ def update_e(request, pk):
     if form.is_valid():
         form.save()
         return redirect('home')
+    
+def delete(request, pk):
+    db = Livro.objects.get(pk=pk)
+    db.delete()
+    return redirect('home')
