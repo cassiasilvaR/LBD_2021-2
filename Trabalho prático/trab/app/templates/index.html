@@ -6,18 +6,21 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <body>
-        <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <h1 style="color: coral;">
+        <div class="col-8 m-auto pt-2 pb-2 text-center" style="background-color: antiquewhite;">
+            <h1 style="color: coral; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;" >
                 e-SHELF
             </h1>
         </div>
-        <div class="col-8 m-auto pt-2 pb-2 text-center">            
+        <div class="menu text-center mt-4" >            
             <a href="/form" class="btn btn-successs" style="background-color: navajowhite;">
                 Adicionar Livro
             </a>
             <a href="/form_e" class="btn btn-successs" style="background-color: navajowhite;">
                 Adicionar Escritor(a)
             </a>
+            <a href="/form_user" class="btn btn-success" style="background-color: navajowhite; color: black; border: white;">Cadastrar Usuário</a>
+            <a href="/form_est" class="btn btn-success" style="background-color: navajowhite; color: black; border: white;">Registrar Estante</a>
+            <a href="/devolver" class="btn btn-success" style="background-color: navajowhite; color: black; border: white;">Devolver livro</a>
         </div>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
             <table class="table" style="background-color: brown; color: navajowhite; border: white;">
@@ -77,11 +80,6 @@
                     </tr>
                     {%endfor%}
             </table>
-        </div>
-        <div class="col-8 m-auto pt-2 pb-4 text-center">
-            <a href="/form_user" class="btn btn-success" style="background-color: navajowhite; color: black; border: white;">Cadastrar Usuário</a>
-            <a href="/form_est" class="btn btn-success" style="background-color: navajowhite; color: black; border: white;">Registrar Estante</a>
-            <a href="/devolver" class="btn btn-success" style="background-color: navajowhite; color: black; border: white;">Devolver livro</a>
         </div>
     </body>
 </html>
