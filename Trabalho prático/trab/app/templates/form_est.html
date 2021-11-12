@@ -7,12 +7,12 @@
     </head>
     <body>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <h1>
+            <h1 style="color: coral;">
                 Registrar Estante
             </h1>
         </div>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <a href="/" class="btn btn-info">
+            <a href="/" class="btn btn-info" style="background-color: navajowhite; border: white;">
                 Voltar
             </a>
         </div>
@@ -20,7 +20,7 @@
             <form name="form" id="form" action="/registestante/" method="post">
                 {% csrf_token %}
                 <div class="form-group mt-4">Categoria: {{form.categoria}}</div>
-                <input type="submit" class="btn btn-success" value="Salvar">
+                <input type="submit" class="btn btn-success mt-4" value="Salvar" style="background-color: navajowhite; color: black; border: white;">
             </form>
         </div>
     </body>

@@ -7,12 +7,12 @@
     </head>
     <body>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <h1>
+            <h1 style="color: coral;">
                 Cadastrar Escritor(a)
             </h1>
         </div>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <a href="/" class="btn btn-info">
+            <a href="/" class="btn btn-info" style="background-color: navajowhite; border: white;">
                 Voltar
             </a>
         </div>
@@ -21,7 +21,7 @@
                 {% csrf_token %}
                 <div class="form-group mt-4">Nome: {{form.nome}}</div>
                 <div class="form-group mt-4">Área de atuação: {{form.area_atuacao}}</div>
-                <input type="submit" class="btn btn-success" value="Salvar">
+                <input type="submit" class="btn btn-success mt-4" value="Salvar" style="background-color: navajowhite; border: white; color: black;">
             </form>
         </div>
     </body>

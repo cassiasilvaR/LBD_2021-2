@@ -1,12 +1,15 @@
 from typing import NoReturn
-from django.forms.widgets import DateInput, DateTimeBaseInput
+from django.db.models import query
+from django.db.models.expressions import When
+from django.db.models.sql.query import RawQuery
+from django.forms.widgets import DateInput, DateTimeBaseInput, Select
 from django.shortcuts import redirect, render
 from app.forms import EmprestimoForm, EscritorForm, EstanteForm, LivroForm, UsuarioForm
-from app.models import Escritor, Livro, Usuario, Estante
+from app.models import Emprestimo, Escritor, Livro, Usuario, Estante
 # Create your views here.
 def home(request):
     data = {}
-    data['db'] = Livro.objects.all()
+    data['db'] = Livro.objects.raw("Select * from app_livro where id not in (select livro_id from app_emprestimo)")
     data['dbe'] = Escritor.objects.all()
     return render(request, 'index.html', data)
 

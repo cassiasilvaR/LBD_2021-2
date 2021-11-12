@@ -7,12 +7,12 @@
     </head>
     <body>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <h1>
-                Cadastrar Livro
+            <h1 style="color: coral;">
+                {%if db %}Editar Livro{%else%}Cadastrar Livro {%endif%}
             </h1>
         </div>
         <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <a href="/" class="btn btn-info">
+            <a href="/" class="btn btn-info" style="background-color: navajowhite; border: white;" >
                 Voltar
             </a>
         </div>
@@ -25,10 +25,10 @@
                 <div class="form-group mt-4">IBSN: {{form.ibsn}}</div>
                 <div class="form-group mt-4">Escritor(a): {{form.escritor}} </div>
                 <div class="form-group mt-4">Estante: {{form.estante}} </div>
-                <div class="form-group mt-4"><input type="submit" class="btn btn-success" value="Salvar"></div>
+                <div class="form-group mt-4"><input type="submit" class="btn btn-success" style="background-color: navajowhite;color: black ;border: white;" value="Salvar"></div>
                 <div class="col-8 m-auto pt-4 pb-2 text-center">
-                    <table class="table">
-                        <h3>Escritores</h3>
+                    <table class="table" class="table" style="background-color: brown; color: navajowhite; border: white;">
+                        <h3 style="color: indianred;" >Escritores</h3>
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
@@ -43,8 +43,8 @@
                               </tr>
                             {%endfor%}
                     </table>
-                    <table class="table">
-                        <h3>Estantes</h3>
+                    <table class="table" class="table" style="background-color: brown; color: navajowhite; border: white;">
+                        <h3 style="color: indianred;" >Estantes</h3>
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
