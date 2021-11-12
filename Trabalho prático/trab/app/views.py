@@ -103,3 +103,13 @@ def delete(request, pk):
     db = Livro.objects.get(pk=pk)
     db.delete()
     return redirect('home')
+
+def devolver(request):
+    data = {}
+    data['db'] = Emprestimo.objects.all()
+    return render(request, 'devolver.html', data)
+
+def devolucao(request, pk):
+    db = Emprestimo.objects.get(pk=pk)
+    db.delete()
+    return redirect('home')
